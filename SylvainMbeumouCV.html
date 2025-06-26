@@ -24,8 +24,8 @@
         .sidebar {
             background: #1e3d59;
             color: #ffffff;
-            width: 280px;
-            padding: 40px 30px;
+            width: 250px;
+            padding: 30px 30px;
         }
         .sidebar h2 {
             margin-top: 0;
@@ -35,6 +35,11 @@
         }
         .sidebar h3 {
             color: #ffffff;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
         .main {
             flex: 1;
@@ -60,9 +65,15 @@
         }
         .section-content {
             color: #333333;
-            line-height: 1.6;
+            line-height: 1.2;
             font-size: 1em;
             text-align: justify;
+        }
+        .school{
+            color: #2d4b6b;
+            font-weight: 500;
+            font-size: smaller;
+           
         }
         .job, .education {
             margin-bottom: 18px;
@@ -81,19 +92,21 @@
         }
         .job-desc {
             color: #333333;
-            line-height: 1.5;
+            line-height: 1.2;
+            font-size: 0.98em;
         }
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
+            text-align: left;
         }
         .skill {
             background: #e8eef5;
             color: #1e3d59;
             border-radius: 20px;
             padding: 6px 18px;
-            font-size: 0.98em;
+            font-size: 0.90em;
             font-weight: 500;
             border: 1px solid #c5d1e0;
         }
@@ -114,11 +127,11 @@
 <body>
     <div class="container">
         <aside class="sidebar">
-            <h3 class="job-title">Sylvain Mbeumou</h3>
+            <h2 class="job-title">Sylvain Mbeumou</h2>
             <ul>
-                <li>Email : sylvain.mbeumou@gmail.com</li>
-                <li>Téléphone : +33 7 52 40 96 93</li>
-                <li>Chelles (77) 77500</li>
+                <li>✉️ : sylvain.mbeumou@gmail.com</li>
+                <li>📞 : +33 7 52 40 96 93</li>
+                <li>📍 77500 Chelles</li>
             </ul>
             <h3>Compétences</h3>
             <h4 style="color: #ffffff; margin: 15px 0 10px 0; font-size: 0.9em;">EXPERTISE MATÉRIAUX</h4>
@@ -131,7 +144,7 @@
             <h4 style="color: #ffffff; margin: 15px 0 10px 0; font-size: 0.9em;">OUTILS & MÉTHODES</h4>
             <div class="skills">
                 <span class="skill">Analyse des données</span>
-                <span class="skill">Excel - Annalyse et exploitation de données</span>
+                <span class="skill">Excel - Analyse et exploitation de données</span>
                 <span class="skill">Catia</span>
                 <span class="skill">Office 360</span>
             </div>
@@ -143,68 +156,64 @@
             </div>
             <div class="section">
                 <div class="section-title"><h1 style="color: #ffffff; margin: 15px 0 10px 0; font-size: 0.9em;" >Langues</h1></div>
-                <ul>
-                    <li>Français (langue maternelle)</li>
-                    <li>Anglais (intermédiaire)</li>
-                </ul>
+                <div class="skills">
+                    <span class="skill">Français (langue maternelle)</span>
+                    <span class="skill">Anglais (intermédiaire)</span>
+                </div>
+            </div>
+            <div class="section">
+            <h4 style="color: #ffffff; margin: 15px 0 10px 0; font-size: 0.9em;">CENTRES D'INTÉRÊT</h4>
+                <div class="skills">
+                    <span class="skill">Informatique : HTML, React JS, PHP</span>
+                    <span class="skill">Jardinage : Bouturage de rosiers, plantation de fleurs et de fruits</span>
+                </div>
             </div>
         </aside>
         <main class="main">
             <h1>Ingénieur Matériaux</h1>
             <div class="section">
-                <div class="section-title">Résumé</div>
-                <p class="section-content">Ingénieur rigoureux alliant expertise technique (Master 2 Matériaux Avancés, CNAM) et compétences opérationnelles. Passionné par l'innovation et la résolution de problèmes complexes. Recherche un poste en gestion de projets matériaux ou R&D dans l'aéronautique/l'automobile.</p>
+                <p class="section-content">Je mets ma rigueur et ma polyvalence au service de projets de R&D, avec une forte appétence pour la transformation de défis complexes en solutions concrètes, notamment dans les domaines de l’aéronautique et de l’automobile.</p>
             </div>
             <div class="section">
                 <div class="section-title">Expérience professionnelle</div>
                 <div class="job">
                     <div class="job-title">Support administratif, achats et support conducteurs de travaux</div>
-                    <div class="job-company">CF SERVICES, Courtry (77)</div>
-                    <div class="job-date">août 2022 - aujourd'hui</div>
+                    <div class="job-company">CF SERVICES, Courtry (77) - août 2022 - aujourd'hui</div>
+                    <!--<div class="job-date">août 2022 - aujourd'hui</div> -->
                     <div class="job-desc">
-                        • Optimisation des processus administratifs internes et externes (gestion des sous-traitants, agréments, rédaction de PPSPS, cautions bancaires).<br>
-                        • Supervision du parc d’outils en location et gestion logistique.<br>
-                        • Traitement et suivi des courriers professionnels.<br>
-                        • Négociation et gestion des achats de fournitures.<br>
+                        • Gestion administrative interne et des sous-traitants <br>
+                        • Réalisation des dossiers d'agréments, rédaction de PPSPS, cautions bancaires<br>
+                        • Gestion des locations d'engins de chantier, retours et litiges<br>
+                        • Réalisation des situations de travaux et contrôle des factures sous-traitants <br>
+                        • Relations avec nos fournisseurs et sous-traitants<br>
                     </div>
                 </div>
                 <div class="job">
                     <div class="job-title">Ingénieur Matériaux</div>
-                    <div class="job-company">CONSEPT INGENIERIE, Île-de-France</div>
-                    <div class="job-date">mars 2021 - mars 2022</div>
+                    <div class="job-company">CONSEPT INGENIERIE, Île-de-France - mars 2021 - mars 2022 </div>
+                    <!--<div class="job-date">mars 2021 - mars 2022</div> -->
                     <div class="job-desc">• Adaptation et disponibilité lors d’une période d’intercontrat, maintien de la veille technologique et réglementaire.</div>
                 </div>
-                <div class="job">
-                    <div class="job-title">Ingénieur Matériaux métallique</div>
-                    <div class="job-company">CONSEPT pour Safran Engineering Services, Magny-les-Hameaux (78)</div>
-                    <div class="job-date">mai 2018 - mars 2021</div>
-                    <div class="job-desc">
-                        • Pilotage du suivi de gamme de forges et analyse des propriétés mécaniques (Fer, Nickel, Aluminium, Titane).<br>
-                        • Rédaction de rapports de validation métallurgique et gestion de la planification des délais/livraisons.<br>
-                        • Réalisation de reportings hebdomadaires pour la direction.<br>
-                        • Uniformisation et analyse statistique de bases de données matériaux (Projet MIDAS, Minitab).<br>
-                        • Implémentation et analyse de résultats d’essais de fatigue et fractographies d’éprouvettes.<br>
-                    </div>
-                </div>
+                
                 <div class="job">
                     <div class="job-title">Ingénieur Matériaux</div>
-                    <div class="job-company">Nexans, Bohain-en-Vermandois (02)</div>
-                    <div class="job-date">mai 2017 - novembre 2017</div>
+                    <div class="job-company">Nexans, Bohain-en-Vermandois (02) - mai 2017 - novembre 2017</div>
+                  <!-- <div class="job-date">mai 2017 - novembre 2017</div> -->
                     <div class="job-desc">
-                        • Conduite d’études de reformulation de mélanges d’élastomères (anticipation REACh).<br>
+                        • Réalisation de rapports de validation de matières et de leurs caractéristiques (définition de critères de sélection de nouvelles matières et fournisseurs).<br>
+                        • Réalisation d'une études de reformulation de mélanges d’élastomères (anticipation REACh).<br>
                         • Réalisation d’essais de traction, vieillissement, mesures de viscosité Mooney, essais de rhéologie.<br>
                         • Planification et coordination de campagnes de formulations et essais.<br>
-                        • Définition de critères de sélection de nouvelles matières et fournisseurs.<br>
-                    </div>
+                        • Création de critères de sélection de nouvelles matières et de fournisseurs.<br>
                 </div>
                 <div class="job">
                     <div class="job-title">Assistant Ingénieur Matériaux au laboratoire matériaux polymères</div>
-                    <div class="job-company">Renault Trucks Volvo Vénissieux, Vénissieux (69)</div>
-                    <div class="job-date">avril 2013 - septembre 2013</div>
+                    <div class="job-company">Renault Trucks Volvo Vénissieux, Vénissieux (69) - avril 2013 - septembre 2013</div>
+                   <!-- <div class="job-date">avril 2013 - septembre 2013</div> -->
                     <div class="job-desc">
                         • Analyse des propriétés des élastomères thermoplastiques et veille technologique.<br>
                         • Réalisation d’essais de caractérisation (traction, abrasion, compression set, résistance aux fluides).<br>
-                        • Initiation et gestion de projets avec fournisseurs sur des éléments intérieurs (peau du volant, poignées).<br>
+                        • Rédaction de rapports d'essais des échantillons de thermoplastiques<br>
                     </div>
                 </div>
             <!--   <div class="job">
@@ -222,23 +231,23 @@
                 <div class="section-title">Formation</div>
                 <div class="education">
                     <div class="degree">Master 2 Matériaux</div>
-                    <div class="school">Université Paris Sud Orsay - CNAM Paris, Paris (75)</div>
-                    <div class="education-date">octobre 2016 - septembre 2017</div>
+                    <div class="school">Université Paris Sud Orsay - CNAM Paris, Paris (75) - octobre 2016 - septembre 2017</div>
+                   <!-- <div class="education-date">octobre 2016 - septembre 2017</div> -->
                 </div>
                 <div class="education">
                     <div class="degree">Master 1 Synthèses des matériaux polymères et caractérisation des métaux</div>
-                    <div class="school">Université Lyon 1, Lyon</div>
-                    <div class="education-date">2012 - 2014</div>
+                    <div class="school">Université Lyon 1, Lyon - 2012 - 2014</div>
+                   <!-- <div class="education-date">2012 - 2014</div> -->
                 </div>
                 <div class="education">
                     <div class="degree">Licence Sciences pour l'ingénieur parcours matériaux (Physique et chimie des matériaux)</div>
-                    <div class="school">Université d'Evry, Évry (91)</div>
-                    <div class="education-date">2011 - 2012</div>
+                    <div class="school">Université d'Evry, Évry (91) - 2011 - 2012</div>
+                <!-- <div class="education-date">2011 - 2012</div> -->
                 </div>
                 <div class="education">
                     <div class="degree">DUT Mesures Physiques</div>
-                    <div class="school">IUT de Créteil, Créteil (94)</div>
-                    <div class="education-date">2008 - 2011</div>
+                    <div class="school">IUT de Créteil, Créteil (94) - 2008 - 2011</div>
+                   <!--<div class="education-date">2008 - 2011</div>-->
                 </div>
             </div>
             

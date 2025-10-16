@@ -1,257 +1,306 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Sylvain Mbeumou</title>
     <style>
+        /* A4 print-friendly, single-column layout optimized for ATS parsing */
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        html,
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f0f2f5;
             margin: 0;
             padding: 0;
-            color: #1a1a1a;
+            height: 100%;
         }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #ffffff;
-            box-shadow: 0 4px 16px rgba(44,62,80,0.15);
-            border-radius: 12px;
-            overflow: hidden;
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #111;
+            background: #fff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .sheet {
+            box-sizing: border-box;
+            width: 190mm;
+            /* A4 width minus page margins */
+            margin: 0 auto;
+            padding: 10mm;
+        }
+
+        /* Two-column visual layout: main content first in DOM (good for ATS), sidebar shown at left */
+        .layout {
             display: flex;
+            flex-direction: row-reverse;
+            /* visually places the aside on the left */
+            gap: 8mm;
         }
+
+        .content {
+            flex: 1 1 auto;
+            min-width: 110mm;
+        }
+
         .sidebar {
+            width: 64mm;
+            /* fixed sidebar width for A4 */
             background: #1e3d59;
             color: #ffffff;
-            width: 250px;
-            padding: 30px 30px;
+            padding: 6mm;
+            box-sizing: border-box;
+            border-radius: 4px;
         }
+
         .sidebar h2 {
+            color: #ffffff;
             margin-top: 0;
-            font-size: 2em;
-            letter-spacing: 1px;
-            color: #ffffff;
         }
-        .sidebar h3 {
-            color: #ffffff;
-        }
+
         .sidebar ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
+            padding-left: 0;
         }
-        .main {
-            flex: 1;
-            padding: 40px 50px;
-            background: #ffffff;
+
+        .sidebar li {
+            margin-bottom: 6px;
+            font-size: 9pt;
+            color: #ffffff;
         }
-        .main h1 {
-            margin-top: 0;
-            font-size: 2.5em;
-            color: #1e3d59;
+
+        .sidebar .sidebar-contact {
+            margin-bottom: 6mm;
+            font-size: 9pt;
         }
-        .section {
-            margin-bottom: 35px;
+
+        .sidebar .sidebar-contact p {
+            margin: 4px 0;
+            color: #ffffff;
         }
-        .section-title {
-            color: #1e3d59;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #1e3d59;
-            display: inline-block;
-            padding-bottom: 2px;
+
+        .sidebar a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        header {
+            margin-bottom: 6mm;
+        }
+
+        h1 {
+            font-size: 20pt;
+            margin: 0 0 2mm 0;
+        }
+
+        h2 {
+            font-size: 12pt;
+            margin: 6px 0;
             font-weight: 600;
         }
-        .section-content {
-            color: #333333;
-            line-height: 1.2;
-            font-size: 1em;
-            text-align: justify;
+
+        h3 {
+            font-size: 11pt;
+            margin: 8px 0;
         }
-        .school{
-            color: #2d4b6b;
-            font-weight: 500;
-            font-size: smaller;
-           
+
+        .contact {
+            font-size: 10pt;
+            margin-bottom: 6mm;
         }
-        .job, .education {
-            margin-bottom: 18px;
+
+        .contact p {
+            margin: 2px 0;
         }
-        .job-title, .degree {
-            font-weight: bold;
-            color: #1e3d59;
+
+        section {
+            margin-bottom: 6mm;
         }
-        .job-company, .school {
-            color: #2d4b6b;
-            font-weight: 500;
+
+        .summary {
+            font-size: 10pt;
+            line-height: 1.3;
         }
-        .job-date, .education-date {
-            color: #516a83;
-            font-size: 0.95em;
+
+        .job,
+        .education {
+            margin-bottom: 4mm;
         }
-        .job-desc {
-            color: #333333;
-            line-height: 1.2;
-            font-size: 0.98em;
+
+        .job h3,
+        .education h3 {
+            margin: 0;
+            font-size: 11pt;
         }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            text-align: left;
+
+        .meta {
+            font-size: 9pt;
+            color: #333;
+            margin-bottom: 3px;
         }
-        .skill {
-            background: #e8eef5;
-            color: #1e3d59;
-            border-radius: 20px;
-            padding: 6px 18px;
-            font-size: 0.90em;
-            font-weight: 500;
-            border: 1px solid #c5d1e0;
+
+        ul {
+            margin: 4px 0 8px 18px;
         }
-        @media (max-width: 800px) {
-            .container {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                padding: 30px 20px;
-            }
-            .main {
-                padding: 30px 20px;
-            }
+
+        li {
+            margin-bottom: 3px;
+            font-size: 10pt;
         }
+
+        /* Skills and lists kept simple as plain lists for ATS */
+        .skills-list {
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+            font-size: 10pt;
+        }
+
+        /* Minimal print-friendly styles (no decorative layout that could hide text) */
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <h2 class="job-title">Sylvain Mbeumou</h2>
-            <ul>
-                <li>✉️ : sylvain.mbeumou@gmail.com</li>
-                <li>📞 : +33 7 52 40 96 93</li>
-                <li>📍 77500 Chelles</li>
-            </ul>
-            <h3>Compétences</h3>
-            <h4 style="color: #ffffff; margin: 15px 0 10px 0; font-size: 0.9em;">EXPERTISE MATÉRIAUX</h4>
-            <div class="skills">
-                <span class="skill">Matériaux métalliques</span>
-                <span class="skill">Matériaux Polymères (Thermoplastiques, Elastomère)</span>
-                <span class="skill">Caractérisation mécanique</span>
-            </div>
-            
-            <h4 style="color: #ffffff; margin: 15px 0 10px 0; font-size: 0.9em;">OUTILS & MÉTHODES</h4>
-            <div class="skills">
-                <span class="skill">Analyse des données</span>
-                <span class="skill">Excel - Analyse et exploitation de données</span>
-                <span class="skill">Catia</span>
-                <span class="skill">Office 360</span>
-            </div>
-            <h4 style="color: #ffffff; margin: 15px 0 10px 0; font-size: 0.9em;">GESTION & ORGANISATION</h4>
-            <div class="skills">
-                <span class="skill">Gestion de projets</span>
-                <span class="skill">Travail en équipe et en Autonomie</span>
-                <span class="skill">Planification d'essais</span>
-            </div>
-            <div class="section">
-                <div class="section-title"><h1 style="color: #ffffff; margin: 15px 0 10px 0; font-size: 0.9em;" >Langues</h1></div>
-                <div class="skills">
-                    <span class="skill">Français (langue maternelle)</span>
-                    <span class="skill">Anglais (intermédiaire)</span>
+    <div class="sheet">
+        <div class="layout">
+            <main class="content">
+                <header>
+                    <h1>Sylvain Mbeumou</h1>
+                    <h2>Ingénieur Matériaux</h2>
+
+                </header>
+
+                <section id="profil">
+
+                    <p class="summary">Je mets ma rigueur et ma polyvalence au service de projets de R&D, avec une forte
+                        appétence pour la transformation de défis complexes en solutions concrètes, notamment dans les
+                        domaines de l’aéronautique et de l’automobile.</p>
+                </section>
+
+                <section id="experience">
+                    <h2>Expérience professionnelle</h2>
+
+                    <article class="job">
+                        <h3>Support administratif, achats et support conducteurs de travaux — CF SERVICES</h3>
+                        <p class="meta">Courtry (77) — août 2022 – aujourd'hui</p>
+                        <ul>
+                            <li>Gestion administrative interne et des sous-traitants</li>
+                            <li>Réalisation des dossiers d'agréments, rédaction de PPSPS, cautions bancaires</li>
+                            <li>Gestion des locations d'engins, retours et litiges</li>
+                            <li>Réalisation des situations de travaux et contrôle des factures</li>
+                        </ul>
+                    </article>
+
+                    <article class="job">
+                        <h3>Ingénieur Matériaux — CONSEPT INGENIERIE</h3>
+                        <p class="meta">Île-de-France — mars 2021 – mars 2022</p>
+                        <ul>
+                            <li>Maintien de la veille technologique et réglementaire</li>
+                            <li>Support sur projets matériaux et analyses techniques</li>
+                        </ul>
+                    </article>
+
+                    <article class="job">
+                        <h3>Ingénieur Matériaux — Nexans</h3>
+                        <p class="meta">Bohain-en-Vermandois (02) — mai 2017 – novembre 2017</p>
+                        <ul>
+                            <li>Rédaction de rapports de validation de matières et définition de critères de sélection
+                            </li>
+                            <li>Étude de reformulation de mélanges d’élastomères (anticipation REACh)</li>
+                            <li>Réalisation d’essais (traction, vieillissement, viscosité Mooney, rhéologie)</li>
+                        </ul>
+                    </article>
+
+                    <article class="job">
+                        <h3>Assistant Ingénieur Matériaux — Renault Trucks Volvo Vénissieux</h3>
+                        <p class="meta">Vénissieux (69) — avril 2013 – septembre 2013</p>
+                        <ul>
+                            <li>Caractérisation d’échantillons thermoplastiques et élastomères</li>
+                            <li>Réalisation d’essais et rédaction de rapports d'essais</li>
+                        </ul>
+                    </article>
+                </section>
+
+                <section id="formation">
+                    <h2>Formation</h2>
+                    <article class="education">
+                        <h3>Master 2 Matériaux — Université Paris Sud Orsay / CNAM Paris</h3>
+                        <p class="meta">octobre 2016 – septembre 2017</p>
+                    </article>
+                    <article class="education">
+                        <h3>Master 1 Synthèses des matériaux polymères et caractérisation des métaux — Université Lyon 1
+                        </h3>
+                        <p class="meta">2012 – 2014</p>
+                    </article>
+                    <article class="education">
+                        <h3>Licence Sciences pour l'ingénieur (parcours matériaux) — Université d'Évry</h3>
+                        <p class="meta">2011 – 2012</p>
+                    </article>
+                    <article class="education">
+                        <h3>DUT Mesures Physiques — IUT de Créteil</h3>
+                        <p class="meta">2008 – 2011</p>
+                    </article>
+                </section>
+            </main>
+
+            <aside class="sidebar" aria-label="Colonne d'information">
+                <div class="sidebar-contact">
+                    <p><strong>Sylvain Mbeumou</strong></p>
+                    <p>Email: <a href="mailto:sylvain.mbeumou@gmail.com">sylvain.mbeumou@gmail.com</a></p>
+                    <p>Tél: <a href="tel:+33752409693">+33 7 52 40 96 93</a></p>
+                    <p>77500 Chelles</p>
                 </div>
-            </div>
-            <div class="section">
-            <h4 style="color: #ffffff; margin: 15px 0 10px 0; font-size: 0.9em;">CENTRES D'INTÉRÊT</h4>
-                <div class="skills">
-                    <span class="skill">Informatique : HTML, React JS, PHP</span>
-                    <span class="skill">Jardinage : Bouturage de rosiers, plantation de fleurs et de fruits</span>
+                <h2>Compétences</h2>
+                <div class="skills-list">
+                    <ul>
+                        <li>Matériaux métalliques</li>
+                        <li>Matériaux polymères (thermoplastiques, élastomères)</li>
+                        <li>Caractérisation mécanique</li>
+                        <li>Analyse de données / Excel</li>
+                        <li>Catia</li>
+                        <li>Office 365</li>
+                        <li>Gestion de projets</li>
+                        <li>Planification d'essais</li>
+                    </ul>
                 </div>
-            </div>
-        </aside>
-        <main class="main">
-            <h1>Ingénieur Matériaux</h1>
-            <div class="section">
-                <p class="section-content">Je mets ma rigueur et ma polyvalence au service de projets de R&D, avec une forte appétence pour la transformation de défis complexes en solutions concrètes, notamment dans les domaines de l’aéronautique et de l’automobile.</p>
-            </div>
-            <div class="section">
-                <div class="section-title">Expérience professionnelle</div>
-                <div class="job">
-                    <div class="job-title">Support administratif, achats et support conducteurs de travaux</div>
-                    <div class="job-company">CF SERVICES, Courtry (77) - août 2022 - aujourd'hui</div>
-                    <!--<div class="job-date">août 2022 - aujourd'hui</div> -->
-                    <div class="job-desc">
-                        • Gestion administrative interne et des sous-traitants <br>
-                        • Réalisation des dossiers d'agréments, rédaction de PPSPS, cautions bancaires<br>
-                        • Gestion des locations d'engins de chantier, retours et litiges<br>
-                        • Réalisation des situations de travaux et contrôle des factures sous-traitants <br>
-                        • Relations avec nos fournisseurs et sous-traitants<br>
-                    </div>
-                </div>
-                <div class="job">
-                    <div class="job-title">Ingénieur Matériaux</div>
-                    <div class="job-company">CONSEPT INGENIERIE, Île-de-France - mars 2021 - mars 2022 </div>
-                    <!--<div class="job-date">mars 2021 - mars 2022</div> -->
-                    <div class="job-desc">• Adaptation et disponibilité lors d’une période d’intercontrat, maintien de la veille technologique et réglementaire.</div>
-                </div>
-                
-                <div class="job">
-                    <div class="job-title">Ingénieur Matériaux</div>
-                    <div class="job-company">Nexans, Bohain-en-Vermandois (02) - mai 2017 - novembre 2017</div>
-                  <!-- <div class="job-date">mai 2017 - novembre 2017</div> -->
-                    <div class="job-desc">
-                        • Réalisation de rapports de validation de matières et de leurs caractéristiques (définition de critères de sélection de nouvelles matières et fournisseurs).<br>
-                        • Réalisation d'une études de reformulation de mélanges d’élastomères (anticipation REACh).<br>
-                        • Réalisation d’essais de traction, vieillissement, mesures de viscosité Mooney, essais de rhéologie.<br>
-                        • Planification et coordination de campagnes de formulations et essais.<br>
-                        • Création de critères de sélection de nouvelles matières et de fournisseurs.<br>
-                </div>
-                <div class="job">
-                    <div class="job-title">Assistant Ingénieur Matériaux au laboratoire matériaux polymères</div>
-                    <div class="job-company">Renault Trucks Volvo Vénissieux, Vénissieux (69) - avril 2013 - septembre 2013</div>
-                   <!-- <div class="job-date">avril 2013 - septembre 2013</div> -->
-                    <div class="job-desc">
-                        • Analyse des propriétés des élastomères thermoplastiques et veille technologique.<br>
-                        • Réalisation d’essais de caractérisation (traction, abrasion, compression set, résistance aux fluides).<br>
-                        • Rédaction de rapports d'essais des échantillons de thermoplastiques<br>
-                    </div>
-                </div>
-            <!--   <div class="job">
-                    <div class="job-title">Stage D.U.T Mesures Physiques</div>
-                    <div class="job-company">Centre Scientifique et Technique, Marne-la-Vallée (77)</div>
-                    <div class="job-date">avril 2011 - juin 2011</div>
-                    <div class="job-desc">
-                        • Application des mesures physiques en laboratoire d’essais sur structures et matériaux de construction.<br>
-                        • Réalisation d’essais de traction sur structures en bois, mesures de température et d’hygrométrie.<br>
-                        • Caractérisation de cloisons, démarche qualité 5S.<br>
-                    </div>
-                </div>
-            </div> -->
-            <div class="section">
-                <div class="section-title">Formation</div>
-                <div class="education">
-                    <div class="degree">Master 2 Matériaux</div>
-                    <div class="school">Université Paris Sud Orsay - CNAM Paris, Paris (75) - octobre 2016 - septembre 2017</div>
-                   <!-- <div class="education-date">octobre 2016 - septembre 2017</div> -->
-                </div>
-                <div class="education">
-                    <div class="degree">Master 1 Synthèses des matériaux polymères et caractérisation des métaux</div>
-                    <div class="school">Université Lyon 1, Lyon - 2012 - 2014</div>
-                   <!-- <div class="education-date">2012 - 2014</div> -->
-                </div>
-                <div class="education">
-                    <div class="degree">Licence Sciences pour l'ingénieur parcours matériaux (Physique et chimie des matériaux)</div>
-                    <div class="school">Université d'Evry, Évry (91) - 2011 - 2012</div>
-                <!-- <div class="education-date">2011 - 2012</div> -->
-                </div>
-                <div class="education">
-                    <div class="degree">DUT Mesures Physiques</div>
-                    <div class="school">IUT de Créteil, Créteil (94) - 2008 - 2011</div>
-                   <!--<div class="education-date">2008 - 2011</div>-->
-                </div>
-            </div>
-            
-        </main>
+
+                <h2>Langues</h2>
+                <ul>
+                    <li>Français — langue maternelle</li>
+                    <li>Anglais — intermédiaire</li>
+                </ul>
+
+                <h2>Centres d'intérêt</h2>
+                <ul>
+                    <li>Informatique : HTML, React JS, PHP</li>
+                    <li>Jardinage : bouturage et plantation</li>
+                </ul>
+            </aside>
+        </div>
     </div>
+    <script>
+        const puppeteer = require('puppeteer');
+        const path = require('path');
+
+        (async () => {
+            const browser = await puppeteer.launch();
+            const page = await browser.newPage();
+            const file = path.resolve(__dirname, 'SylvainMbeumouCV.html');
+            await page.goto('file://' + file, { waitUntil: 'networkidle0' });
+            await page.pdf({
+                path: 'SylvainMbeumouCV.pdf',
+                format: 'A4',
+                printBackground: true,
+                margin: { top: '5mm', right: '10mm', bottom: '10mm', left: '10mm' }
+            });
+            await browser.close();
+            console.log('PDF généré : SylvainMbeumouCV.pdf');
+        })();
+    </script>
 </body>
+
 </html>

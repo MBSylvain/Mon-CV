@@ -1,4 +1,5 @@
 import React from 'react';
+import { themes } from '../themes';
 
 const Section = ({ title, children, className = "" }) => (
     <div className={`mb-6 border p-4 rounded bg-white shadow-sm ${className}`}>
@@ -101,6 +102,24 @@ export default function CVEditor({ data, onChange }) {
 
     return (
         <div className="p-4 bg-gray-50 h-full overflow-y-auto custom-scrollbar space-y-4 pb-20">
+            <Section title="Thème & Style">
+                <div className="grid grid-cols-2 gap-2">
+                    {Object.values(themes).map((t) => (
+                        <button
+                            key={t.id}
+                            onClick={() => onChange({ ...data, theme: t.id })}
+                            className={`flex items-center gap-2 p-2 border rounded-lg transition text-left text-xs font-medium ${data.theme === t.id
+                                    ? 'border-black bg-white ring-2 ring-black/10'
+                                    : 'border-gray-200 hover:border-gray-300 bg-gray-50'
+                                }`}
+                        >
+                            <div className={`w-4 h-4 rounded-full ${t.sidebarBg} border border-black/10`} />
+                            {t.name}
+                        </button>
+                    ))}
+                </div>
+            </Section>
+
             <Section title="Informations Personnelles">
                 <Input label="Nom complet" value={data.details.name} onChange={(e) => updateDetails('name', e.target.value)} />
                 <Input label="Titre du poste" value={data.details.title} onChange={(e) => updateDetails('title', e.target.value)} />

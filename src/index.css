@@ -14,18 +14,16 @@
         print-color-adjust: exact;
     }
 
-    /* Force the CV to take full height if desired, or at least behave well on A4 */
     #cv-to-print {
-        width: 210mm;
-        min-height: 297mm;
-        margin: 0 auto;
-        border-radius: 0;
-        box-shadow: none;
-    }
-
-    /* Sidebar height fix for print */
-    aside {
-        min-height: 297mm;
-        height: 100%;
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 }

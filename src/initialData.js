@@ -1,4 +1,5 @@
 export const initialCVData = {
+    theme: 'blue',
     details: {
         name: "Sylvain Mbeumou",
         title: "Ingénieur Matériaux",

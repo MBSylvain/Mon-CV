@@ -1,0 +1,72 @@
+export const themes = {
+    blue: {
+        id: 'blue',
+        name: 'Bleu Pro',
+        sidebarBg: 'bg-blue-900',
+        sidebarText: 'text-white',
+        sidebarLabel: 'text-blue-100',
+        mainTitle: 'text-blue-900',
+        sectionTitle: 'text-blue-900',
+        sectionBorder: 'border-blue-900',
+        accentText: 'text-blue-700',
+        badgeBg: 'bg-blue-100',
+        badgeText: 'text-blue-900',
+        badgeBorder: 'border-blue-200'
+    },
+    emerald: {
+        id: 'emerald',
+        name: 'Émeraude',
+        sidebarBg: 'bg-emerald-900',
+        sidebarText: 'text-white',
+        sidebarLabel: 'text-emerald-100',
+        mainTitle: 'text-emerald-900',
+        sectionTitle: 'text-emerald-900',
+        sectionBorder: 'border-emerald-900',
+        accentText: 'text-emerald-700',
+        badgeBg: 'bg-emerald-100',
+        badgeText: 'text-emerald-900',
+        badgeBorder: 'border-emerald-200'
+    },
+    slate: {
+        id: 'slate',
+        name: 'Ardoise Modern',
+        sidebarBg: 'bg-slate-800',
+        sidebarText: 'text-white',
+        sidebarLabel: 'text-slate-200',
+        mainTitle: 'text-slate-800',
+        sectionTitle: 'text-slate-800',
+        sectionBorder: 'border-slate-800',
+        accentText: 'text-slate-600',
+        badgeBg: 'bg-slate-100',
+        badgeText: 'text-slate-800',
+        badgeBorder: 'border-slate-200'
+    },
+    ruby: {
+        id: 'ruby',
+        name: 'Rubis Élégant',
+        sidebarBg: 'bg-rose-900',
+        sidebarText: 'text-white',
+        sidebarLabel: 'text-rose-100',
+        mainTitle: 'text-rose-900',
+        sectionTitle: 'text-rose-900',
+        sectionBorder: 'border-rose-900',
+        accentText: 'text-rose-700',
+        badgeBg: 'bg-rose-100',
+        badgeText: 'text-rose-900',
+        badgeBorder: 'border-rose-200'
+    },
+    classicGray: {
+        id: 'classicGray',
+        name: 'Gris Classique',
+        sidebarBg: 'bg-gray-100',
+        sidebarText: 'text-black',
+        sidebarLabel: 'text-gray-600',
+        mainTitle: 'text-black font-extrabold',
+        sectionTitle: 'text-black',
+        sectionBorder: 'border-black',
+        accentText: 'text-gray-700 font-semibold',
+        badgeBg: 'bg-transparent',
+        badgeText: 'text-black',
+        badgeBorder: 'border-transparent' // Invisible border
+    }
+};

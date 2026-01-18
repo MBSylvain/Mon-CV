@@ -4,7 +4,7 @@ const CVPreview = ({ data }) => {
     const { details, skills, experience, education, keywords } = data;
 
     return (
-        <div id="cv-to-print" className="bg-white shadow-lg rounded-xl flex flex-col md:flex-row overflow-hidden w-full max-w-4xl mx-auto print:shadow-none print:w-full print:max-w-none">
+        <div id="cv-to-print" className="bg-white shadow-lg rounded-xl flex flex-col md:flex-row w-full max-w-4xl mx-auto print:shadow-none print:w-full print:max-w-none min-h-[297mm]">
             {/* Sidebar */}
             <aside className="bg-gray-100 text-black w-full md:w-64 p-8 flex-shrink-0 print:w-64">
                 <img src="https://via.placeholder.com/150" alt="Profile" className="w-16 h-16 rounded-full mr-4" />

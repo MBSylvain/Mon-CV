@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import html2pdf from 'html2pdf.js';
 import CVPreview from './components/CVPreview';
 import CVEditor from './components/CVEditor';
 import { initialCVData } from './initialData';
@@ -7,8 +8,24 @@ import './index.css';
 function App() {
   const [data, setData] = useState(initialCVData);
 
-  const handlePrint = () => {
-    window.print();
+  const handleExportPDF = () => {
+    const element = document.getElementById('cv-to-print');
+    const opt = {
+      margin: 0,
+      filename: `CV_${data.details.name.replace(/\s+/g, '_')}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        letterRendering: true,
+        scrollY: 0,
+        windowWidth: 1200 // Ensure we capture the desktop view layout
+      },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    // New version of export logic
+    html2pdf().set(opt).from(element).save();
   };
 
   return (
@@ -20,10 +37,10 @@ function App() {
           <h1 className="text-xl font-bold text-gray-800">Mon CV Personnalisable</h1>
         </div>
         <button
-          onClick={handlePrint}
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-medium shadow-sm flex items-center gap-2"
+          onClick={handleExportPDF}
+          className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition font-medium shadow-sm flex items-center gap-2"
         >
-          <span>🖨️</span> Imprimer / PDF
+          <span>📄</span> Exporter en PDF (A4)
         </button>
       </header>
 
